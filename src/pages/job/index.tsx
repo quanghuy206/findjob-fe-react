@@ -15,7 +15,6 @@ const ClientJobPage = (props: any) => {
         location: [],
         skills: []
     });
-    console.log(searchTemp)
     return (
         <div className={styles["container"]} style={{ marginTop: 20 }}>
             <Row gutter={[20, 20]}>

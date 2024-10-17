@@ -168,3 +168,16 @@ export interface ISubscribers {
     createdAt?: string;
     updatedAt?: string;
 }
+
+export interface IArticles {
+    _id?: string;
+    title?: string;
+    content: string;
+    summary: string;
+    logo: string;
+    author?: string;
+    isDeleted?: boolean;
+    deletedAt?: boolean | null;
+    createdAt?: string;
+    updatedAt?: string;
+}

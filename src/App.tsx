@@ -30,6 +30,9 @@ import ClientJobPage from './pages/job';
 import ClientJobDetailPage from './pages/job/detail';
 import ClientCompanyPage from './pages/company';
 import ClientCompanyDetailPage from './pages/company/detail';
+import ArticlePage from './pages/admin/article';
+import ArticleClientPage from './pages/article';
+import ClientArticleDetailPage from './pages/article/detail';
 
 const LayoutClient = () => {
   const [searchTerm, setSearchTemp] = useState("");
@@ -78,7 +81,9 @@ export default function App() {
         { path: "job", element: <ClientJobPage /> },
         { path: "job/:id", element: <ClientJobDetailPage /> },
         { path: "company", element: <ClientCompanyPage /> },
-        { path: "company/:id", element: <ClientCompanyDetailPage /> }
+        { path: "company/:id", element: <ClientCompanyDetailPage /> },
+        { path: "article", element: <ArticleClientPage /> },
+        { path: "article/:id", element: <ClientArticleDetailPage /> }
       ],
     },
 
@@ -108,6 +113,13 @@ export default function App() {
           element:
             <ProtectedRoute>
               <UserPage />
+            </ProtectedRoute>
+        },
+        {
+          path: "article",
+          element:
+            <ProtectedRoute>
+              <ArticlePage />
             </ProtectedRoute>
         },
 

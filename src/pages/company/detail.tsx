@@ -20,6 +20,7 @@ const ClientCompanyDetailPage = (props: any) => {
     let params = new URLSearchParams(location.search);
     const id = params?.get("id"); // job id
 
+    console.log(companyDetail)
     useEffect(() => {
         const initCompany = async () => {
             if (id) {
@@ -58,7 +59,7 @@ const ClientCompanyDetailPage = (props: any) => {
         initJob();
     }, [id]);
 
-
+    console.log(companyDetail)
     return (
         <div className={styles["wrap-bg"]}>
             <Row gutter={[20, 20]}>

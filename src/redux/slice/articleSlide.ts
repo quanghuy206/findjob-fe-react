@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { callFetchJob, callFetchJobByRole } from '@/config/api';
-import { IJob } from '@/types/backend';
+import { callFetchArticle } from "@/config/api";
+import { IArticles } from "@/types/backend";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface IState {
     isFetching: boolean;
@@ -10,57 +10,47 @@ interface IState {
         pages: number;
         total: number;
     },
-    result: IJob[]
+    result: IArticles[]
 }
-// First, create the thunk
-export const fetchJob = createAsyncThunk(
-    'job/fetchJob',
+export const fetchArticle = createAsyncThunk(
+    'article/fetchArticle',
     async ({ query }: { query: string }) => {
-        const response = await callFetchJobByRole(query);
+        const response = await callFetchArticle(query);
         return response;
     }
 )
-
 
 const initialState: IState = {
     isFetching: true,
     meta: {
         current: 1,
-        pageSize: 10,
+        pageSize: 5,
         pages: 0,
         total: 0
     },
     result: []
 };
 
-
-export const jobSlide = createSlice({
-    name: 'job',
+export const articleSlide = createSlice({
+    name: 'article',
     initialState,
-    // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
         // Use the PayloadAction type to declare the contents of `action.payload`
         setActiveMenu: (state, action) => {
             // state.activeMenu = action.payload;
         },
-
-
     },
     extraReducers: (builder) => {
-        // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(fetchJob.pending, (state, action) => {
-            state.isFetching = true;
-            // Add user to the state array
-            // state.courseOrder = action.payload;
-        })
-
-        builder.addCase(fetchJob.rejected, (state, action) => {
+        builder.addCase(fetchArticle.pending, (state) => {
+            state.isFetching = true
+        });
+        builder.addCase(fetchArticle.rejected, (state, action) => {
             state.isFetching = false;
             // Add user to the state array
             // state.courseOrder = action.payload;
         })
 
-        builder.addCase(fetchJob.fulfilled, (state, action) => {
+        builder.addCase(fetchArticle.fulfilled, (state, action) => {
             if (action.payload && action.payload.data) {
                 state.isFetching = false;
                 state.meta = action.payload.data.meta;
@@ -70,10 +60,10 @@ export const jobSlide = createSlice({
 
             // state.courseOrder = action.payload;
         })
-    },
 
-});
+    }
+})
 
-export const { setActiveMenu } = jobSlide.actions;
+export const { setActiveMenu } = articleSlide.actions;
 
-export default jobSlide.reducer;
+export default articleSlide.reducer

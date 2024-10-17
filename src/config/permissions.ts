@@ -36,6 +36,12 @@ export const ALL_PERMISSIONS = {
         UPDATE: { method: "PATCH", apiPath: '/api/v1/users/:id', module: "USERS" },
         DELETE: { method: "DELETE", apiPath: '/api/v1/users/:id', module: "USERS" },
     },
+    ARTICLES: {
+        GET_PAGINATE: { method: "GET", apiPath: '/api/v1/articles', module: "ARTICLES" },
+        CREATE: { method: "POST", apiPath: '/api/v1/articles', module: "ARTICLES" },
+        UPDATE: { method: "PATCH", apiPath: '/api/v1/articles/:id', module: "ARTICLES" },
+        DELETE: { method: "DELETE", apiPath: '/api/v1/articles/:id', module: "ARTICLES" },
+    },
 }
 
 export const ALL_MODULES = {
@@ -47,5 +53,7 @@ export const ALL_MODULES = {
     RESUMES: 'RESUMES',
     ROLES: 'ROLES',
     USERS: 'USERS',
-    SUBSCRIBERS: 'SUBSCRIBERS'
+    SUBSCRIBERS: 'SUBSCRIBERS',
+    ARTICLES: 'ARTICLES',
+
 }

@@ -265,7 +265,6 @@ $color-button-red: #ff4d4f;
             }
         }
 
-        // Nút 'Write review' và 'Follow'
         .actionButtons {
             display: flex;
             gap: 10px;
@@ -324,6 +323,28 @@ $color-button-red: #ff4d4f;
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    .wrap-btn-jobs {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+
+        .custom-link {
+            text-decoration: none;
+            color: #007bff;
+            padding: 10px 20px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 24px;
+
+            &:hover {
+                background-color: #007bff;
+                color: white;
+            }
+        }
+    }
+
 }
 
 .detail-job-section {
@@ -496,5 +517,136 @@ $color-button-red: #ff4d4f;
             background-color: #007bff;
             color: #fff;
         }
+    }
+}
+
+.wrap-article {
+
+    .grid-card {
+        width: 390px;
+        margin: 10px 10px;
+        height: 400px;
+    }
+
+    img {
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .side-title {
+        height: 50px;
+    }
+
+    .item-article {
+        padding-right: 20px;
+        max-height: 250px;
+    }
+
+    .cus-summary {
+        height: 70px;
+    }
+
+    .side-link {
+        align-self: flex-end;
+        display: block;
+        color: blue;
+    }
+}
+
+// ArticleDetail.scss
+.wrap-article-detail {
+    background-color: #f9f9f9;
+
+    h2 {
+        font-size: 23px;
+        color: #353535;
+        font-weight: 400;
+        margin: 25px 0 0;
+    }
+
+    ul {
+        padding-left: 2rem;
+    }
+
+    li {
+        line-height: 2em;
+    }
+
+    p {
+        color: #3a3a3a;
+        font-size: 16px;
+        line-height: 1.7em;
+        width: 100%;
+        line-height: 2em;
+    }
+
+    .main-art {
+        padding: 20px;
+        background-color: #FFF;
+
+        img {
+            max-width: 100%;
+            height: 100%;
+        }
+
+        .info-detail-art {
+
+            h1 {
+                font-size: 35px;
+                color: red;
+                font-weight: 500;
+            }
+
+            p {
+                color: #666;
+
+            }
+        }
+    }
+
+
+
+    .side-art {
+        margin-top: 30px;
+
+
+        img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .detai-side-art {
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgb(209, 206, 206);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .intro-side-art {
+                display: block;
+
+                h4 {
+                    text-align: center;
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+
+                span {
+                    font-size: 18px;
+
+                }
+            }
+
+        }
+
+
     }
 }

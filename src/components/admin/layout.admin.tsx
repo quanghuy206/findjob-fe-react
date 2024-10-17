@@ -65,6 +65,10 @@ const LayoutAdmin = () => {
                 && item.method === ALL_PERMISSIONS.ROLES.GET_PAGINATE.method
             )
 
+            const viewArticle = permissions.find(item =>
+                item.apiPath === ALL_PERMISSIONS.ARTICLES.GET_PAGINATE.apiPath
+                && item.method === ALL_PERMISSIONS.ARTICLES.GET_PAGINATE.method
+            )
             const viewPermission = permissions.find(item =>
                 item.apiPath === ALL_PERMISSIONS.PERMISSIONS.GET_PAGINATE.apiPath
                 && item.method === ALL_PERMISSIONS.USERS.GET_PAGINATE.method
@@ -108,7 +112,11 @@ const LayoutAdmin = () => {
                     key: '/admin/role',
                     icon: <ExceptionOutlined />
                 }] : []),
-
+                ...(viewArticle ? [{
+                    label: <Link to='/admin/article'>Article</Link>,
+                    key: '/admin/article',
+                    icon: <ExceptionOutlined />
+                }] : []),
 
 
             ];

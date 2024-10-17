@@ -11,6 +11,7 @@ import resumeReducer from './slice/resumeSlide';
 import permissionReducer from './slice/permissionSlide';
 import roleReducer from './slice/roleSlide';
 import searchReducer from './slice/searchSlice'
+import articleReducer from './slice/articleSlide'
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +22,8 @@ export const store = configureStore({
     resume: resumeReducer,
     permission: permissionReducer,
     role: roleReducer,
-    searchTemp: searchReducer
+    searchTemp: searchReducer,
+    article: articleReducer
   },
 });
 

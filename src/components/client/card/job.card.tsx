@@ -33,9 +33,7 @@ const JobCard = (props: IProps) => {
     const [sortQuery, setSortQuery] = useState("sort=-updatedAt");
     const navigate = useNavigate();
 
-    console.log(searchTemp.location)
     const params = searchTemp.location.map(item => `location=${encodeURIComponent(item)}`).join('&');
-    console.log(params)
     useEffect(() => {
         fetchJob();
         if (searchTemp) {
