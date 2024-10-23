@@ -1,6 +1,6 @@
 import { IBackendRes, ICompany, IAccount, IUser, IModelPaginate, IGetAccount, IJob, IResume, IPermission, IRole, ISubscribers, IArticles } from '@/types/backend';
 import axios from 'config/axios-customize';
-
+import qs from 'qs';
 /**
  * 
 Module Auth
@@ -23,6 +23,9 @@ export const callRefreshToken = () => {
 
 export const callLogout = () => {
     return axios.post<IBackendRes<string>>('/api/v1/auth/logout')
+}
+export const callChangePassword = (payload: any) => {
+    return axios.post<IBackendRes<IAccount>>('/api/v1/auth/change-password', payload)
 }
 
 /**
