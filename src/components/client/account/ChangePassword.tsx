@@ -56,9 +56,6 @@ const ChangePassword = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button style={{ marginRight: 20 }} >
-                    Hủy
-                </Button>
                 <Button type="primary" onClick={() => form.submit()}>
                     Submit
                 </Button>

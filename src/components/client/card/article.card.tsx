@@ -1,15 +1,17 @@
 import { callFetchArticle } from '@/config/api';
 import { IArticles } from '@/types/backend';
-import { Card, Col, Row, Spin } from 'antd';
+import { Card, Col, Empty, Pagination, Row, Spin } from 'antd';
 import React, { useEffect, useState } from 'react'
 import styles from 'styles/client.module.scss';
 import { isMobile } from 'react-device-detect';
 import { RightOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { convertSlug } from '@/config/utils';
-
-const ArticleCard = () => {
-
+interface IProps {
+    showPagination?: boolean;
+}
+const ArticleCard = (props: IProps) => {
+    const { showPagination = false } = props;
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [displayArticle, setDisplayArticle] = useState<IArticles[] | null>(null);
 
@@ -19,6 +21,7 @@ const ArticleCard = () => {
     const [filter, setFilter] = useState("");
     const [sortQuery, setSortQuery] = useState("sort=-updatedAt");
     const navigate = useNavigate();
+
     useEffect(() => {
         fetchArticle();
     }, [current, pageSize, filter, sortQuery])
@@ -46,6 +49,15 @@ const ArticleCard = () => {
             navigate(`/article/${slug}?id=${item._id}`)
         }
     }
+    const handleOnchangePage = (pagination: { current: number, pageSize: number }) => {
+        if (pagination && pagination.current !== current) {
+            setCurrent(pagination.current)
+        }
+        if (pagination && pagination.pageSize !== pageSize) {
+            setPageSize(pagination.pageSize)
+            setCurrent(1);
+        }
+    }
 
     return (
         <div className={`${styles["article-section"]}`}>
@@ -55,6 +67,9 @@ const ArticleCard = () => {
                         <Col span={24}>
                             <div className={isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]}>
                                 <span className={styles["title"]}>Features Article</span>
+                                {!showPagination &&
+                                    <Link to="/article">Xem tất cả</Link>
+                                }
                             </div>
                         </Col>
                         <Col span={24} className={styles['wrap-article']}>
@@ -71,7 +86,7 @@ const ArticleCard = () => {
                                             />
                                             <h4 className={styles["side-title"]}>{article.title}</h4>
                                             <p className={styles["cus-summary"]}>
-                                                {article.summary.length > 100 ? `${article.summary.slice(0, 100)}...` : article.summary}
+                                                {article?.summary?.length > 100 ? `${article?.summary?.slice(0, 100)}...` : article?.summary}
                                             </p>
                                             <Link to="/" className={styles["side-link"]}>
                                                 Start reading
@@ -81,12 +96,29 @@ const ArticleCard = () => {
                                             </Link>
                                         </div>
                                     </Card.Grid>
-
                                 ))}
+                                {(!displayArticle || displayArticle && displayArticle.length === 0)
+                                    && !isLoading &&
+                                    <div className={styles["empty"]}>
+                                        <Empty description="Không có dữ liệu" />
+                                    </div>
+                                }
                             </Card>
 
                         </Col>
                     </Row>
+                    {showPagination && <>
+                        <div style={{ marginTop: 30 }}></div>
+                        <Row style={{ display: "flex", justifyContent: "center" }}>
+                            <Pagination
+                                current={current}
+                                total={total}
+                                pageSize={pageSize}
+                                responsive
+                                onChange={(p: number, s: number) => handleOnchangePage({ current: p, pageSize: s })}
+                            />
+                        </Row>
+                    </>}
                 </Spin>
             </div>
         </div>

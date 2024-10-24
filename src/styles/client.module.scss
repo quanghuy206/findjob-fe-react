@@ -220,76 +220,58 @@ $color-button-red: #ff4d4f;
 
     .wrapBg-company {
         display: flex;
+        height: 100%;
+        gap: 30px;
         align-items: center;
-        justify-content: space-between;
-        color: $color-text-white;
 
-        .companyInfo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .company-logo {
+            width: 200px;
+            height: 170px;
+            background-color: white;
+            border-radius: 10px;
 
-            .companyLogo {
-                width: 160px;
-                height: 160px;
-                line-height: 160px;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    margin-right: 20px;
-                }
-            }
-
-            .companyDetails {
-                h1 {
-                    color: $color-text-white;
-                    font-size: 35px;
-                    margin: 0;
-                }
-
-                span {
-                    color: $color-text-gray;
-                    font-size: 24px;
-                }
-
-                .jobOpenings {
-                    color: $color-text-white;
-                    text-decoration: none;
-                    font-size: 24px;
-                    margin-left: 10px;
-                }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
             }
         }
 
-        .actionButtons {
+        .company-info {
+            margin-right: 200px;
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            justify-content: flex-start;
 
-            .writeReview,
-            .follow {
-                border: none;
-                padding: 10px 15px;
-                cursor: pointer;
-                border-radius: 5px;
-                font-weight: bold;
+            h1 {
+                font-size: 45px;
+                color: white;
+                text-transform: capitalize;
             }
 
-            .writeReview {
-                background-color: $color-button-red;
-                color: $color-text-white;
-            }
+            div {
+                display: flex;
+                gap: 20px;
 
-            .follow {
-                background-color: $color-text-white;
-                color: $color-button-red;
-                border: 1px solid $color-button-red;
+                span {
+                    font-size: 25px;
+                    color: white;
+
+                }
+
+                h4 {
+                    flex-grow: 1;
+                    font-size: 30px;
+                    color: white;
+                    font-weight: bold;
+                }
+
             }
         }
     }
+
 
 }
 
@@ -513,14 +495,15 @@ $color-button-red: #ff4d4f;
         text-decoration: none;
         transition: background-color 0.3s ease;
 
-        &:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
+        // &:hover {
+        //     background-color: #007bff;
+        //     color: #fff;
+        // }
     }
 }
 
 .wrap-article {
+    cursor: pointer;
 
     .grid-card {
         width: 390px;
@@ -534,7 +517,9 @@ $color-button-red: #ff4d4f;
     }
 
     .side-title {
-        height: 50px;
+        font-size: 20px;
+        height: 100px;
+        font-weight: 600;
     }
 
     .item-article {
@@ -648,5 +633,19 @@ $color-button-red: #ff4d4f;
         }
 
 
+    }
+}
+
+.footer-page {
+    margin-top: 50px;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        color: white;
+        font-size: 30px;
     }
 }

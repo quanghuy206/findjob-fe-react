@@ -1,8 +1,8 @@
-
+import styles from 'styles/client.module.scss';
 const Footer = () => {
     return (
-        <footer style={{ padding: 15, textAlign: "center" }}>
-            {/* <div>Frontend React Typescript - Series Nest.JS Basic &copy; Hỏi Dân IT</div> */}
+        <footer className={styles["footer-page"]} >
+            <div >Frontend React Typescript -  Nest.JS Basic &copy;</div>
         </footer>
     )
 }

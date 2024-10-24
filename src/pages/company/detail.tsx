@@ -62,27 +62,23 @@ const ClientCompanyDetailPage = (props: any) => {
     console.log(companyDetail)
     return (
         <div className={styles["wrap-bg"]}>
-            <Row gutter={[20, 20]}>
-                {companyDetail && companyDetail._id &&
-                    <Col span={24} md={16} style={{ marginBottom: 30 }}>
-                        <div className={styles['wrapBg-company']}>
-                            <div className={styles["companyInfo"]}>
-                                <div className={styles.companyLogo}>
-                                    <img src={`${import.meta.env.VITE_BACKEND_URL}/images/company/${companyDetail?.logo}`} alt="Company Logo" />
-                                </div>
-                                <div className={styles.companyDetails}>
-                                    <h1>{companyDetail.name}</h1>
-                                    <span>
-                                        <EnvironmentOutlined style={{ color: '#58aaab' }} />&nbsp;{(companyDetail?.address)}
-                                    </span>
-                                    <a href="#" className={styles.jobOpenings}>{totalJob} Job Opening</a>
-                                </div>
-                            </div>
-
+            {companyDetail && companyDetail._id &&
+                <div className={`${styles['wrapBg-company']} ${styles['container']}`}>
+                    <div className={styles["company-logo"]}>
+                        <img src={`${import.meta.env.VITE_BACKEND_URL}/images/company/${companyDetail?.logo}`} alt="Company Logo" />
+                    </div>
+                    <div className={styles["company-info"]}>
+                        <h1>{companyDetail.name}</h1>
+                        <div>
+                            <span>
+                                <EnvironmentOutlined style={{ color: '#58aaab' }} />{(companyDetail?.address)}
+                            </span>
+                            <h4 className={styles.jobOpenings}>{totalJob} Job Opening</h4>
                         </div>
-                    </Col>
-                }
-            </Row>
+
+                    </div>
+                </div>
+            }
             <div className={`${styles["container"]} ${styles["detail-job-section"]}`}>
                 {isLoading ?
                     <Skeleton />
