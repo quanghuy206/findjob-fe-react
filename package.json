@@ -1,6 +1,5 @@
 {
-  "name": "fe-vite-nestjs-hoidanit",
-  "author": "Hỏi Dân IT với Eric",
+  "name": "fe-vite-nestjs",
   "description": "Frontend for series Nest.JS Youtube Hỏi Dân IT",
   "private": true,
   "version": "1.0.0",
