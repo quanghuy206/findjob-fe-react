@@ -1,6 +1,6 @@
 {
   "name": "fe-vite-nestjs",
-  "description": "Frontend for series Nest.JS Youtube Hỏi Dân IT",
+  "description": "Frontend for series Nest.JS Youtube",
   "private": true,
   "version": "1.0.0",
   "type": "module",
